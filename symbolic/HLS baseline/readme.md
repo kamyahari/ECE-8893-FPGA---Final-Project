@@ -1,0 +1,1 @@
+Source code for the HLS baseline of circular convolution. Running script.tcl will run csynth, cosim and implementation for the input1_A.bin and input1_b.bin files. Modify the  inputs and reference outputs accordingly.
