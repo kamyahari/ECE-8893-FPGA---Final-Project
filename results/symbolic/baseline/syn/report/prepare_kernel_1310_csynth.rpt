@@ -1,0 +1,162 @@
+
+
+================================================================
+== Vitis HLS Report for 'prepare_kernel_1310'
+================================================================
+* Date:           Mon Apr 28 18:48:55 2025
+
+* Version:        2024.2.2 (Build 6049644 on Mar  5 2025)
+* Project:        project_1
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: aversalaiedge
+* Target device:  xave1752-vsva1596-1LJ-i-S
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  3.646 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+------------------------------------------------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval |                    Pipeline                    |
+    |   min   |   max   |    min   |    max   | min | max |                      Type                      |
+    +---------+---------+----------+----------+-----+-----+------------------------------------------------+
+    |      258|      258|  2.580 us|  2.580 us|  256|  256|  loop auto-rewind stp (delay=0 clock cycles(s))|
+    +---------+---------+----------+----------+-----+-----+------------------------------------------------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------+---------+---------+----------+-----------+-----------+------+----------+
+        |               |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |   Loop Name   |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- kernel_prep  |      256|      256|         2|          1|          1|   256|       yes|
+        +---------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|      25|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     -|       -|       -|    -|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       0|      18|    -|
+|Register         |        -|     -|      20|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     0|      20|      43|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |     1908|  1312|  897024|  448512|  462|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|     0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------+----------+----+---+----+------------+------------+
+    |       Variable Name       | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------+----------+----+---+----+------------+------------+
+    |add_ln19_fu_144_p2         |         +|   0|  0|   8|           8|           1|
+    |sub_ln21_fu_164_p2         |         -|   0|  0|   8|           1|           8|
+    |ap_condition_117           |       and|   0|  0|   2|           1|           1|
+    |icmp_ln19_fu_189_p2        |      icmp|   0|  0|   3|           8|           2|
+    |ap_block_pp0_stage0_11001  |        or|   0|  0|   2|           1|           1|
+    |ap_enable_pp0              |       xor|   0|  0|   2|           1|           2|
+    +---------------------------+----------+----+---+----+------------+------------+
+    |Total                      |          |   0|  0|  25|          20|          15|
+    +---------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------------------+----+-----------+-----+-----------+
+    |               Name               | LUT| Input Size| Bits| Total Bits|
+    +----------------------------------+----+-----------+-----+-----------+
+    |ap_done_int                       |   1|          2|    1|          2|
+    |ap_loop_exit_ready_pp0_iter1_reg  |   1|          2|    1|          2|
+    |ap_sig_allocacmp_m27_i_load       |   8|          2|    8|         16|
+    |m27_i_fu_58                       |   8|          2|    8|         16|
+    +----------------------------------+----+-----------+-----+-----------+
+    |Total                             |  18|          8|   18|         36|
+    +----------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------+---+----+-----+-----------+
+    |               Name               | FF| LUT| Bits| Const Bits|
+    +----------------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                         |  1|   0|    1|          0|
+    |ap_done_reg                       |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1           |  1|   0|    1|          0|
+    |ap_loop_exit_ready_pp0_iter1_reg  |  1|   0|    1|          0|
+    |lshr_ln_i_reg_243                 |  6|   0|    6|          0|
+    |m27_i_fu_58                       |  8|   0|    8|          0|
+    |trunc_ln19_reg_239                |  2|   0|    2|          0|
+    +----------------------------------+---+----+-----+-----------+
+    |Total                             | 20|   0|   20|          0|
+    +----------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------+-----+-----+------------+---------------------+--------------+
+|      RTL Ports      | Dir | Bits|  Protocol  |    Source Object    |    C Type    |
++---------------------+-----+-----+------------+---------------------+--------------+
+|ap_clk               |   in|    1|  ap_ctrl_hs|  prepare_kernel.1310|  return value|
+|ap_rst               |   in|    1|  ap_ctrl_hs|  prepare_kernel.1310|  return value|
+|ap_start             |   in|    1|  ap_ctrl_hs|  prepare_kernel.1310|  return value|
+|ap_done              |  out|    1|  ap_ctrl_hs|  prepare_kernel.1310|  return value|
+|ap_continue          |   in|    1|  ap_ctrl_hs|  prepare_kernel.1310|  return value|
+|ap_idle              |  out|    1|  ap_ctrl_hs|  prepare_kernel.1310|  return value|
+|ap_ready             |  out|    1|  ap_ctrl_hs|  prepare_kernel.1310|  return value|
+|B_address0           |  out|   14|   ap_memory|                    B|         array|
+|B_ce0                |  out|    1|   ap_memory|                    B|         array|
+|B_q0                 |   in|   32|   ap_memory|                    B|         array|
+|i                    |   in|    4|     ap_none|                    i|        scalar|
+|kernel_3_i_address0  |  out|    6|   ap_memory|           kernel_3_i|         array|
+|kernel_3_i_ce0       |  out|    1|   ap_memory|           kernel_3_i|         array|
+|kernel_3_i_we0       |  out|    1|   ap_memory|           kernel_3_i|         array|
+|kernel_3_i_d0        |  out|   32|   ap_memory|           kernel_3_i|         array|
+|kernel_2_i_address0  |  out|    6|   ap_memory|           kernel_2_i|         array|
+|kernel_2_i_ce0       |  out|    1|   ap_memory|           kernel_2_i|         array|
+|kernel_2_i_we0       |  out|    1|   ap_memory|           kernel_2_i|         array|
+|kernel_2_i_d0        |  out|   32|   ap_memory|           kernel_2_i|         array|
+|kernel_1_i_address0  |  out|    6|   ap_memory|           kernel_1_i|         array|
+|kernel_1_i_ce0       |  out|    1|   ap_memory|           kernel_1_i|         array|
+|kernel_1_i_we0       |  out|    1|   ap_memory|           kernel_1_i|         array|
+|kernel_1_i_d0        |  out|   32|   ap_memory|           kernel_1_i|         array|
+|kernel_i_address0    |  out|    6|   ap_memory|             kernel_i|         array|
+|kernel_i_ce0         |  out|    1|   ap_memory|             kernel_i|         array|
+|kernel_i_we0         |  out|    1|   ap_memory|             kernel_i|         array|
+|kernel_i_d0          |  out|   32|   ap_memory|             kernel_i|         array|
++---------------------+-----+-----+------------+---------------------+--------------+
+

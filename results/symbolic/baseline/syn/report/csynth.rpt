@@ -1,0 +1,990 @@
+
+
+================================================================
+== Synthesis Summary Report of 'circular_convolution_3d'
+================================================================
++ General Information: 
+    * Date:           Mon Apr 28 18:49:17 2025
+    * Version:        2024.2.2 (Build 6049644 on Mar  5 2025)
+    * Project:        project_1
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: aversalaiedge
+    * Target device:  xave1752-vsva1596-1LJ-i-S
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+---------+------------+------------+-----+
+    |                       Modules                      | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |         |         |            |            |     |
+    |                       & Loops                      | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM   |   DSP   |     FF     |     LUT    | URAM|
+    +----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+---------+------------+------------+-----+
+    |+ circular_convolution_3d*                          |     -|  1.25|   549249|  5.492e+06|         -|   549250|     -|  dataflow|  32 (1%)|  8 (~0%)|  20239 (2%)|  24043 (5%)|    -|
+    | + VITIS_LOOP_51_1_proc                             |     -|  1.25|   549249|  5.492e+06|         -|   549249|     -|        no|  32 (1%)|  8 (~0%)|  20239 (2%)|  24043 (5%)|    -|
+    |  o VITIS_LOOP_51_1                                 |     -|  7.30|   549248|  5.492e+06|     34329|        -|    16|        no|        -|        -|           -|           -|    -|
+    |   + dataflow_parent_loop_proc                      |     -|  1.25|    34327|  3.433e+05|         -|    34327|     -|        no|  32 (1%)|  8 (~0%)|  20229 (2%)|  24009 (5%)|    -|
+    |    o VITIS_LOOP_54_2                               |     -|  7.30|    34326|  3.433e+05|      8968|        -|     4|        no|        -|        -|           -|           -|    -|
+    |     + dataflow_in_loop_VITIS_LOOP_54_2_1*          |     -|  1.25|     8966|  8.966e+04|         -|     8453|     -|  dataflow|  32 (1%)|  8 (~0%)|  20223 (2%)|  23975 (5%)|    -|
+    |      + entry_proc8                                 |     -|  5.88|        0|      0.000|         -|        0|     -|        no|        -|        -|     2 (~0%)|     4 (~0%)|    -|
+    |      + pad_input_129                               |     -|  3.33|      513|  5.130e+03|         -|      513|     -|        no|        -|        -|    30 (~0%)|    60 (~0%)|    -|
+    |       o pad_loop                                   |     -|  7.30|      511|  5.110e+03|         2|        1|   511|       yes|        -|        -|           -|           -|    -|
+    |      + prepare_kernel_1310                         |     -|  3.65|      258|  2.580e+03|         -|      258|     -|        no|        -|        -|    20 (~0%)|    43 (~0%)|    -|
+    |       o kernel_prep                                |     -|  7.30|      256|  2.560e+03|         2|        1|   256|       yes|        -|        -|           -|           -|    -|
+    |      + compute_convolution_14                      |     -|  1.25|     8452|  8.452e+04|         -|     8452|     -|        no|        -|  8 (~0%)|  20135 (2%)|  23806 (5%)|    -|
+    |       + compute_convolution_14_Pipeline_conv_loop  |     -|  1.25|     8419|  8.419e+04|         -|     8419|     -|        no|        -|  8 (~0%)|  11899 (1%)|  22437 (5%)|    -|
+    |        o conv_loop                                 |    II|  7.30|     8417|  8.417e+04|       258|       32|   256|       yes|        -|        -|           -|           -|    -|
+    +----------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+---------+---------+------------+------------+-----+
+
++ Performance Pragma Report: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +----------------------------------------------------+----------+------------+-------+----------+------------+-------+
+    |                       Modules                      | Target TI| Achieved TI|       | Target TL| Achieved TL|       |
+    |                       & Loops                      | (cycles) |  (cycles)  | TI met| (cycles) |  (cycles)  | TL met|
+    +----------------------------------------------------+----------+------------+-------+----------+------------+-------+
+    |+ circular_convolution_3d*                          |         -|           -|      -|         -|           -|      -|
+    | + VITIS_LOOP_51_1_proc                             |         -|           -|      -|         -|           -|      -|
+    |  o VITIS_LOOP_51_1                                 |         1|      549264|     no|         -|           -|      -|
+    |   + dataflow_parent_loop_proc                      |         -|           -|      -|         -|           -|      -|
+    |    o VITIS_LOOP_54_2                               |         1|       35872|     no|         -|           -|      -|
+    |     + dataflow_in_loop_VITIS_LOOP_54_2_1*          |         -|           -|      -|         -|           -|      -|
+    |      + entry_proc8                                 |         -|           -|      -|         -|           -|      -|
+    |      + pad_input_129                               |         -|           -|      -|         -|           -|      -|
+    |       o pad_loop                                   |         -|           -|      -|         -|           -|      -|
+    |      + prepare_kernel_1310                         |         -|           -|      -|         -|           -|      -|
+    |       o kernel_prep                                |         -|           -|      -|         -|           -|      -|
+    |      + compute_convolution_14                      |         -|           -|      -|         -|           -|      -|
+    |       + compute_convolution_14_Pipeline_conv_loop  |         -|           -|      -|         -|           -|      -|
+    |        o conv_loop                                 |         -|           -|      -|         -|           -|      -|
+    +----------------------------------------------------+----------+------------+-------+----------+------------+-------+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* AP_MEMORY
++------------+-----------+----------+
+| Port       | Direction | Bitwidth |
++------------+-----------+----------+
+| A_address0 | out       | 14       |
+| A_address1 | out       | 14       |
+| A_d0       | out       | 32       |
+| A_d1       | out       | 32       |
+| A_q0       | in        | 32       |
+| A_q1       | in        | 32       |
+| B_address0 | out       | 14       |
+| B_address1 | out       | 14       |
+| B_d0       | out       | 32       |
+| B_d1       | out       | 32       |
+| B_q0       | in        | 32       |
+| B_q1       | in        | 32       |
+| C_address0 | out       | 14       |
+| C_address1 | out       | 14       |
+| C_d0       | out       | 32       |
+| C_d1       | out       | 32       |
+| C_q0       | in        | 32       |
+| C_q1       | in        | 32       |
++------------+-----------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+----------+
+| Argument | Direction | Datatype |
++----------+-----------+----------+
+| A        | in        | float*   |
+| B        | in        | float*   |
+| C        | out       | float*   |
++----------+-----------+----------+
+
+* SW-to-HW Mapping
++----------+--------------+---------+----------+
+| Argument | HW Interface | HW Type | HW Usage |
++----------+--------------+---------+----------+
+| A        | A_address0   | port    | offset   |
+| A        | A_ce0        | port    |          |
+| A        | A_d0         | port    |          |
+| A        | A_q0         | port    |          |
+| A        | A_we0        | port    |          |
+| A        | A_address1   | port    | offset   |
+| A        | A_ce1        | port    |          |
+| A        | A_d1         | port    |          |
+| A        | A_q1         | port    |          |
+| A        | A_we1        | port    |          |
+| B        | B_address0   | port    | offset   |
+| B        | B_ce0        | port    |          |
+| B        | B_d0         | port    |          |
+| B        | B_q0         | port    |          |
+| B        | B_we0        | port    |          |
+| B        | B_address1   | port    | offset   |
+| B        | B_ce1        | port    |          |
+| B        | B_d1         | port    |          |
+| B        | B_q1         | port    |          |
+| B        | B_we1        | port    |          |
+| C        | C_address0   | port    | offset   |
+| C        | C_ce0        | port    |          |
+| C        | C_d0         | port    |          |
+| C        | C_q0         | port    |          |
+| C        | C_we0        | port    |          |
+| C        | C_address1   | port    | offset   |
+| C        | C_ce1        | port    |          |
+| C        | C_d1         | port    |          |
+| C        | C_q1         | port    |          |
+| C        | C_we1        | port    |          |
++----------+--------------+---------+----------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++-----------------------------------------------------------+-----+--------+--------------+-----------+--------------------------+---------+
+| Name                                                      | DSP | Pragma | Variable     | Op        | Impl                     | Latency |
++-----------------------------------------------------------+-----+--------+--------------+-----------+--------------------------+---------+
+| + circular_convolution_3d                                 | 8   |        |              |           |                          |         |
+|  + VITIS_LOOP_51_1_proc                                   | 8   |        |              |           |                          |         |
+|   + dataflow_parent_loop_proc                             | 8   |        |              |           |                          |         |
+|    + dataflow_in_loop_VITIS_LOOP_54_2_1                   | 8   |        |              |           |                          |         |
+|     + pad_input_129                                       | 0   |        |              |           |                          |         |
+|       add_ln10_fu_144_p2                                  |     |        | add_ln10     | add       | fabric                   | 0       |
+|       icmp_ln10_fu_187_p2                                 |     |        | icmp_ln10    | seteq     | auto                     | 0       |
+|     + prepare_kernel_1310                                 | 0   |        |              |           |                          |         |
+|       add_ln19_fu_144_p2                                  |     |        | add_ln19     | add       | fabric                   | 0       |
+|       sub_ln21_fu_164_p2                                  |     |        | sub_ln21     | sub       | fabric                   | 0       |
+|       icmp_ln19_fu_189_p2                                 |     |        | icmp_ln19    | seteq     | auto                     | 0       |
+|     + compute_convolution_14                              | 8   |        |              |           |                          |         |
+|      + compute_convolution_14_Pipeline_conv_loop          | 8   |        |              |           |                          |         |
+|        add_ln39_fu_22319_p2                               |     |        | add_ln39     | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_i        | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc          | fmadd     | primitivedsp             | 0       |
+|        n_fu_11468_p2                                      |     |        | n            | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_1_i      | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_1        | fmadd     | primitivedsp             | 0       |
+|        add_ln37_1_fu_11512_p2                             |     |        | add_ln37_1   | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_2_i      | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_2        | fmadd     | primitivedsp             | 0       |
+|        add_ln37_2_fu_11552_p2                             |     |        | add_ln37_2   | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_3_i      | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_3        | fmadd     | primitivedsp             | 0       |
+|        add_ln37_3_fu_11592_p2                             |     |        | add_ln37_3   | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_4_i      | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_4        | fmadd     | primitivedsp             | 0       |
+|        add_ln37_4_fu_11622_p2                             |     |        | add_ln37_4   | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_5_i      | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_5        | fmadd     | primitivedsp             | 0       |
+|        add_ln37_5_fu_11662_p2                             |     |        | add_ln37_5   | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_6_i      | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_6        | fmadd     | primitivedsp             | 0       |
+|        add_ln37_6_fu_11702_p2                             |     |        | add_ln37_6   | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_7_i      | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_7        | fmadd     | primitivedsp             | 0       |
+|        add_ln37_7_fu_11758_p2                             |     |        | add_ln37_7   | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_8_i      | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_8        | fmadd     | primitivedsp             | 0       |
+|        add_ln37_8_fu_11787_p2                             |     |        | add_ln37_8   | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_9_i      | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_9        | fmadd     | primitivedsp             | 0       |
+|        add_ln37_9_fu_11826_p2                             |     |        | add_ln37_9   | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_i_170    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_10       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_10_fu_11865_p2                            |     |        | add_ln37_10  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_10_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_11       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_11_fu_11904_p2                            |     |        | add_ln37_11  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_11_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_12       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_12_fu_11933_p2                            |     |        | add_ln37_12  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_12_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_13       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_13_fu_11972_p2                            |     |        | add_ln37_13  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_13_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_14       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_14_fu_12011_p2                            |     |        | add_ln37_14  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_14_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_15       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_15_fu_12053_p2                            |     |        | add_ln37_15  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_15_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_16       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_16_fu_12082_p2                            |     |        | add_ln37_16  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_16_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_17       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_17_fu_12121_p2                            |     |        | add_ln37_17  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_17_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_18       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_18_fu_12160_p2                            |     |        | add_ln37_18  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_18_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_19       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_19_fu_12199_p2                            |     |        | add_ln37_19  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_19_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_20       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_20_fu_12228_p2                            |     |        | add_ln37_20  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_20_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_21       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_21_fu_12267_p2                            |     |        | add_ln37_21  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_21_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_22       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_22_fu_12306_p2                            |     |        | add_ln37_22  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_22_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_23       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_23_fu_12348_p2                            |     |        | add_ln37_23  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_23_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_24       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_24_fu_12377_p2                            |     |        | add_ln37_24  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_24_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_25       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_25_fu_12416_p2                            |     |        | add_ln37_25  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_25_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_26       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_26_fu_12455_p2                            |     |        | add_ln37_26  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_26_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_27       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_27_fu_12494_p2                            |     |        | add_ln37_27  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_27_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_28       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_28_fu_12523_p2                            |     |        | add_ln37_28  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_28_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_29       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_29_fu_12562_p2                            |     |        | add_ln37_29  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_29_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_30       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_30_fu_12601_p2                            |     |        | add_ln37_30  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_30_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U15 | 1   |        | acc_31       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_31_fu_12643_p2                            |     |        | add_ln37_31  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_31_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_32       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_32_fu_12672_p2                            |     |        | add_ln37_32  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_32_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_33       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_33_fu_12711_p2                            |     |        | add_ln37_33  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_33_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_34       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_34_fu_12750_p2                            |     |        | add_ln37_34  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_34_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_35       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_35_fu_12789_p2                            |     |        | add_ln37_35  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_35_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_36       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_36_fu_12818_p2                            |     |        | add_ln37_36  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_36_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_37       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_37_fu_12857_p2                            |     |        | add_ln37_37  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_37_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_38       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_38_fu_12896_p2                            |     |        | add_ln37_38  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_38_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_39       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_39_fu_12941_p2                            |     |        | add_ln37_39  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_39_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_40       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_40_fu_12970_p2                            |     |        | add_ln37_40  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_40_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_41       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_41_fu_13009_p2                            |     |        | add_ln37_41  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_41_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_42       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_42_fu_13048_p2                            |     |        | add_ln37_42  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_42_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_43       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_43_fu_13087_p2                            |     |        | add_ln37_43  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_43_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_44       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_44_fu_13116_p2                            |     |        | add_ln37_44  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_44_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_45       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_45_fu_13155_p2                            |     |        | add_ln37_45  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_45_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_46       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_46_fu_13194_p2                            |     |        | add_ln37_46  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_46_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_47       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_47_fu_13239_p2                            |     |        | add_ln37_47  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_47_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_48       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_48_fu_13268_p2                            |     |        | add_ln37_48  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_48_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_49       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_49_fu_13307_p2                            |     |        | add_ln37_49  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_49_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_50       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_50_fu_13346_p2                            |     |        | add_ln37_50  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_50_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_51       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_51_fu_13385_p2                            |     |        | add_ln37_51  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_51_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_52       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_52_fu_13414_p2                            |     |        | add_ln37_52  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_52_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_53       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_53_fu_13453_p2                            |     |        | add_ln37_53  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_53_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_54       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_54_fu_13492_p2                            |     |        | add_ln37_54  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_54_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_55       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_55_fu_13537_p2                            |     |        | add_ln37_55  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_55_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_56       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_56_fu_13566_p2                            |     |        | add_ln37_56  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_56_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_57       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_57_fu_13605_p2                            |     |        | add_ln37_57  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_57_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_58       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_58_fu_13644_p2                            |     |        | add_ln37_58  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_58_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_59       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_59_fu_13683_p2                            |     |        | add_ln37_59  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_59_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_60       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_60_fu_13712_p2                            |     |        | add_ln37_60  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_60_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_61       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_61_fu_13751_p2                            |     |        | add_ln37_61  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_61_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_62       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_62_fu_13790_p2                            |     |        | add_ln37_62  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_62_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U16 | 1   |        | acc_63       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_63_fu_13835_p2                            |     |        | add_ln37_63  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_63_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_64       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_64_fu_13864_p2                            |     |        | add_ln37_64  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_64_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_65       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_65_fu_13903_p2                            |     |        | add_ln37_65  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_65_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_66       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_66_fu_13942_p2                            |     |        | add_ln37_66  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_66_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_67       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_67_fu_13981_p2                            |     |        | add_ln37_67  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_67_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_68       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_68_fu_14010_p2                            |     |        | add_ln37_68  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_68_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_69       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_69_fu_14049_p2                            |     |        | add_ln37_69  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_69_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_70       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_70_fu_14088_p2                            |     |        | add_ln37_70  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_70_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_71       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_71_fu_14133_p2                            |     |        | add_ln37_71  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_71_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_72       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_72_fu_14162_p2                            |     |        | add_ln37_72  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_72_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_73       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_73_fu_14201_p2                            |     |        | add_ln37_73  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_73_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_74       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_74_fu_14240_p2                            |     |        | add_ln37_74  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_74_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_75       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_75_fu_14279_p2                            |     |        | add_ln37_75  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_75_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_76       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_76_fu_14308_p2                            |     |        | add_ln37_76  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_76_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_77       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_77_fu_14347_p2                            |     |        | add_ln37_77  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_77_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_78       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_78_fu_14386_p2                            |     |        | add_ln37_78  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_78_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_79       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_79_fu_14428_p2                            |     |        | add_ln37_79  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_79_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_80       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_80_fu_14457_p2                            |     |        | add_ln37_80  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_80_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_81       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_81_fu_14496_p2                            |     |        | add_ln37_81  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_81_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_82       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_82_fu_14535_p2                            |     |        | add_ln37_82  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_82_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_83       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_83_fu_14574_p2                            |     |        | add_ln37_83  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_83_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_84       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_84_fu_14603_p2                            |     |        | add_ln37_84  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_84_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_85       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_85_fu_14642_p2                            |     |        | add_ln37_85  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_85_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_86       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_86_fu_14681_p2                            |     |        | add_ln37_86  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_86_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_87       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_87_fu_14726_p2                            |     |        | add_ln37_87  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_87_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_88       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_88_fu_14755_p2                            |     |        | add_ln37_88  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_88_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_89       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_89_fu_14794_p2                            |     |        | add_ln37_89  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_89_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_90       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_90_fu_14833_p2                            |     |        | add_ln37_90  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_90_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_91       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_91_fu_14872_p2                            |     |        | add_ln37_91  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_91_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_92       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_92_fu_14901_p2                            |     |        | add_ln37_92  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_92_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_93       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_93_fu_14940_p2                            |     |        | add_ln37_93  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_93_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_94       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_94_fu_14979_p2                            |     |        | add_ln37_94  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_94_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U17 | 1   |        | acc_95       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_95_fu_15024_p2                            |     |        | add_ln37_95  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_95_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_96       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_96_fu_15053_p2                            |     |        | add_ln37_96  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_96_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_97       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_97_fu_15092_p2                            |     |        | add_ln37_97  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_97_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_98       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_98_fu_15131_p2                            |     |        | add_ln37_98  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_98_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_99       | fmadd     | primitivedsp             | 0       |
+|        add_ln37_99_fu_15170_p2                            |     |        | add_ln37_99  | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_99_i     | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_100      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_100_fu_15199_p2                           |     |        | add_ln37_100 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_100_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_101      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_101_fu_15238_p2                           |     |        | add_ln37_101 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_101_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_102      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_102_fu_15277_p2                           |     |        | add_ln37_102 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_102_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_103      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_103_fu_15322_p2                           |     |        | add_ln37_103 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_103_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_104      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_104_fu_15351_p2                           |     |        | add_ln37_104 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_104_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_105      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_105_fu_15390_p2                           |     |        | add_ln37_105 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_105_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_106      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_106_fu_15429_p2                           |     |        | add_ln37_106 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_106_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_107      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_107_fu_15468_p2                           |     |        | add_ln37_107 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_107_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_108      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_108_fu_15497_p2                           |     |        | add_ln37_108 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_108_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_109      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_109_fu_15536_p2                           |     |        | add_ln37_109 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_109_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_110      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_110_fu_15575_p2                           |     |        | add_ln37_110 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_110_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_111      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_111_fu_15620_p2                           |     |        | add_ln37_111 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_111_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_112      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_112_fu_15649_p2                           |     |        | add_ln37_112 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_112_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_113      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_113_fu_15688_p2                           |     |        | add_ln37_113 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_113_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_114      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_114_fu_15727_p2                           |     |        | add_ln37_114 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_114_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_115      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_115_fu_15766_p2                           |     |        | add_ln37_115 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_115_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_116      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_116_fu_15795_p2                           |     |        | add_ln37_116 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_116_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_117      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_117_fu_15834_p2                           |     |        | add_ln37_117 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_117_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_118      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_118_fu_15873_p2                           |     |        | add_ln37_118 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_118_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_119      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_119_fu_15918_p2                           |     |        | add_ln37_119 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_119_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_120      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_120_fu_15947_p2                           |     |        | add_ln37_120 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_120_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_121      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_121_fu_15986_p2                           |     |        | add_ln37_121 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_121_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_122      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_122_fu_16025_p2                           |     |        | add_ln37_122 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_122_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_123      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_123_fu_16064_p2                           |     |        | add_ln37_123 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_123_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_124      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_124_fu_16093_p2                           |     |        | add_ln37_124 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_124_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_125      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_125_fu_16132_p2                           |     |        | add_ln37_125 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_125_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_126      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_126_fu_16171_p2                           |     |        | add_ln37_126 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_126_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U18 | 1   |        | acc_127      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_127_fu_16216_p2                           |     |        | add_ln37_127 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_127_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_128      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_128_fu_16245_p2                           |     |        | add_ln37_128 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_128_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_129      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_129_fu_16284_p2                           |     |        | add_ln37_129 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_129_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_130      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_130_fu_16323_p2                           |     |        | add_ln37_130 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_130_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_131      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_131_fu_16362_p2                           |     |        | add_ln37_131 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_131_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_132      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_132_fu_16391_p2                           |     |        | add_ln37_132 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_132_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_133      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_133_fu_16430_p2                           |     |        | add_ln37_133 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_133_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_134      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_134_fu_16469_p2                           |     |        | add_ln37_134 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_134_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_135      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_135_fu_16514_p2                           |     |        | add_ln37_135 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_135_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_136      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_136_fu_16543_p2                           |     |        | add_ln37_136 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_136_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_137      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_137_fu_16582_p2                           |     |        | add_ln37_137 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_137_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_138      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_138_fu_16621_p2                           |     |        | add_ln37_138 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_138_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_139      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_139_fu_16660_p2                           |     |        | add_ln37_139 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_139_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_140      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_140_fu_16689_p2                           |     |        | add_ln37_140 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_140_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_141      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_141_fu_16728_p2                           |     |        | add_ln37_141 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_141_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_142      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_142_fu_16767_p2                           |     |        | add_ln37_142 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_142_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_143      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_143_fu_16812_p2                           |     |        | add_ln37_143 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_143_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_144      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_144_fu_16841_p2                           |     |        | add_ln37_144 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_144_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_145      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_145_fu_16880_p2                           |     |        | add_ln37_145 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_145_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_146      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_146_fu_16919_p2                           |     |        | add_ln37_146 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_146_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_147      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_147_fu_16958_p2                           |     |        | add_ln37_147 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_147_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_148      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_148_fu_16987_p2                           |     |        | add_ln37_148 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_148_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_149      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_149_fu_17026_p2                           |     |        | add_ln37_149 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_149_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_150      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_150_fu_17065_p2                           |     |        | add_ln37_150 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_150_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_151      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_151_fu_17107_p2                           |     |        | add_ln37_151 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_151_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_152      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_152_fu_17136_p2                           |     |        | add_ln37_152 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_152_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_153      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_153_fu_17175_p2                           |     |        | add_ln37_153 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_153_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_154      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_154_fu_17214_p2                           |     |        | add_ln37_154 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_154_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_155      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_155_fu_17253_p2                           |     |        | add_ln37_155 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_155_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_156      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_156_fu_17282_p2                           |     |        | add_ln37_156 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_156_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_157      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_157_fu_17321_p2                           |     |        | add_ln37_157 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_157_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_158      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_158_fu_17360_p2                           |     |        | add_ln37_158 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_158_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U19 | 1   |        | acc_159      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_159_fu_17405_p2                           |     |        | add_ln37_159 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_159_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_160      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_160_fu_17434_p2                           |     |        | add_ln37_160 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_160_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_161      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_161_fu_17473_p2                           |     |        | add_ln37_161 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_161_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_162      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_162_fu_17512_p2                           |     |        | add_ln37_162 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_162_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_163      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_163_fu_17551_p2                           |     |        | add_ln37_163 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_163_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_164      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_164_fu_17580_p2                           |     |        | add_ln37_164 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_164_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_165      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_165_fu_17619_p2                           |     |        | add_ln37_165 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_165_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_166      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_166_fu_17658_p2                           |     |        | add_ln37_166 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_166_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_167      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_167_fu_17703_p2                           |     |        | add_ln37_167 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_167_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_168      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_168_fu_17732_p2                           |     |        | add_ln37_168 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_168_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_169      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_169_fu_17771_p2                           |     |        | add_ln37_169 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_169_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_170      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_170_fu_17810_p2                           |     |        | add_ln37_170 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_170_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_171      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_171_fu_17849_p2                           |     |        | add_ln37_171 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_171_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_172      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_172_fu_17878_p2                           |     |        | add_ln37_172 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_172_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_173      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_173_fu_17917_p2                           |     |        | add_ln37_173 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_173_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_174      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_174_fu_17956_p2                           |     |        | add_ln37_174 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_174_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_175      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_175_fu_18001_p2                           |     |        | add_ln37_175 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_175_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_176      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_176_fu_18030_p2                           |     |        | add_ln37_176 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_176_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_177      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_177_fu_18069_p2                           |     |        | add_ln37_177 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_177_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_178      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_178_fu_18108_p2                           |     |        | add_ln37_178 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_178_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_179      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_179_fu_18147_p2                           |     |        | add_ln37_179 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_179_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_180      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_180_fu_18176_p2                           |     |        | add_ln37_180 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_180_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_181      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_181_fu_18215_p2                           |     |        | add_ln37_181 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_181_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_182      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_182_fu_18254_p2                           |     |        | add_ln37_182 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_182_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_183      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_183_fu_18299_p2                           |     |        | add_ln37_183 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_183_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_184      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_184_fu_18328_p2                           |     |        | add_ln37_184 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_184_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_185      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_185_fu_18367_p2                           |     |        | add_ln37_185 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_185_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_186      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_186_fu_18406_p2                           |     |        | add_ln37_186 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_186_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_187      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_187_fu_18445_p2                           |     |        | add_ln37_187 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_187_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_188      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_188_fu_18474_p2                           |     |        | add_ln37_188 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_188_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_189      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_189_fu_18513_p2                           |     |        | add_ln37_189 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_189_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_190      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_190_fu_18552_p2                           |     |        | add_ln37_190 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_190_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U20 | 1   |        | acc_191      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_191_fu_18597_p2                           |     |        | add_ln37_191 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_191_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_192      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_192_fu_18626_p2                           |     |        | add_ln37_192 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_192_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_193      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_193_fu_18665_p2                           |     |        | add_ln37_193 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_193_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_194      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_194_fu_18704_p2                           |     |        | add_ln37_194 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_194_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_195      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_195_fu_18743_p2                           |     |        | add_ln37_195 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_195_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_196      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_196_fu_18772_p2                           |     |        | add_ln37_196 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_196_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_197      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_197_fu_18811_p2                           |     |        | add_ln37_197 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_197_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_198      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_198_fu_18850_p2                           |     |        | add_ln37_198 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_198_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_199      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_199_fu_18895_p2                           |     |        | add_ln37_199 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_199_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_200      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_200_fu_18924_p2                           |     |        | add_ln37_200 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_200_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_201      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_201_fu_18963_p2                           |     |        | add_ln37_201 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_201_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_202      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_202_fu_19002_p2                           |     |        | add_ln37_202 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_202_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_203      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_203_fu_19041_p2                           |     |        | add_ln37_203 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_203_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_204      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_204_fu_19070_p2                           |     |        | add_ln37_204 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_204_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_205      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_205_fu_19109_p2                           |     |        | add_ln37_205 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_205_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_206      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_206_fu_19148_p2                           |     |        | add_ln37_206 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_206_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_207      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_207_fu_19193_p2                           |     |        | add_ln37_207 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_207_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_208      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_208_fu_19222_p2                           |     |        | add_ln37_208 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_208_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_209      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_209_fu_19261_p2                           |     |        | add_ln37_209 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_209_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_210      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_210_fu_19300_p2                           |     |        | add_ln37_210 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_210_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_211      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_211_fu_19339_p2                           |     |        | add_ln37_211 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_211_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_212      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_212_fu_19368_p2                           |     |        | add_ln37_212 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_212_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_213      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_213_fu_19407_p2                           |     |        | add_ln37_213 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_213_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_214      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_214_fu_19446_p2                           |     |        | add_ln37_214 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_214_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_215      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_215_fu_19491_p2                           |     |        | add_ln37_215 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_215_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_216      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_216_fu_19520_p2                           |     |        | add_ln37_216 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_216_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_217      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_217_fu_19559_p2                           |     |        | add_ln37_217 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_217_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_218      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_218_fu_19598_p2                           |     |        | add_ln37_218 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_218_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_219      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_219_fu_19637_p2                           |     |        | add_ln37_219 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_219_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_220      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_220_fu_19666_p2                           |     |        | add_ln37_220 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_220_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_221      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_221_fu_19705_p2                           |     |        | add_ln37_221 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_221_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_222      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_222_fu_19744_p2                           |     |        | add_ln37_222 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_222_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U21 | 1   |        | acc_223      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_223_fu_19786_p2                           |     |        | add_ln37_223 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_223_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_224      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_224_fu_19815_p2                           |     |        | add_ln37_224 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_224_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_225      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_225_fu_19854_p2                           |     |        | add_ln37_225 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_225_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_226      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_226_fu_19893_p2                           |     |        | add_ln37_226 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_226_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_227      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_227_fu_19932_p2                           |     |        | add_ln37_227 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_227_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_228      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_228_fu_19961_p2                           |     |        | add_ln37_228 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_228_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_229      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_229_fu_20000_p2                           |     |        | add_ln37_229 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_229_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_230      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_230_fu_20039_p2                           |     |        | add_ln37_230 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_230_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_231      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_231_fu_20084_p2                           |     |        | add_ln37_231 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U23                           |     |        | tmp_231_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_232      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_232_fu_20113_p2                           |     |        | add_ln37_232 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U24                           |     |        | tmp_232_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_233      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_233_fu_20152_p2                           |     |        | add_ln37_233 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U25                           |     |        | tmp_233_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_234      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_234_fu_20191_p2                           |     |        | add_ln37_234 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U26                           |     |        | tmp_234_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_235      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_235_fu_20230_p2                           |     |        | add_ln37_235 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U27                           |     |        | tmp_235_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_236      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_236_fu_20259_p2                           |     |        | add_ln37_236 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U28                           |     |        | tmp_236_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_237      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_237_fu_20298_p2                           |     |        | add_ln37_237 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U29                           |     |        | tmp_237_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_238      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_238_fu_20337_p2                           |     |        | add_ln37_238 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U30                           |     |        | tmp_238_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_239      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_239_fu_20382_p2                           |     |        | add_ln37_239 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U31                           |     |        | tmp_239_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_240      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_240_fu_20411_p2                           |     |        | add_ln37_240 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U32                           |     |        | tmp_240_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_241      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_241_fu_20450_p2                           |     |        | add_ln37_241 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U33                           |     |        | tmp_241_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_242      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_242_fu_20489_p2                           |     |        | add_ln37_242 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U34                           |     |        | tmp_242_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_243      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_243_fu_20528_p2                           |     |        | add_ln37_243 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U35                           |     |        | tmp_243_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_244      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_244_fu_20557_p2                           |     |        | add_ln37_244 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U36                           |     |        | tmp_244_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_245      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_245_fu_20596_p2                           |     |        | add_ln37_245 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U37                           |     |        | tmp_245_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_246      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_246_fu_20635_p2                           |     |        | add_ln37_246 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U38                           |     |        | tmp_246_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_247      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_247_fu_20680_p2                           |     |        | add_ln37_247 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U31                           |     |        | tmp_247_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_248      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_248_fu_20709_p2                           |     |        | add_ln37_248 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U32                           |     |        | tmp_248_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_249      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_249_fu_20748_p2                           |     |        | add_ln37_249 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U33                           |     |        | tmp_249_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_250      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_250_fu_20787_p2                           |     |        | add_ln37_250 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U34                           |     |        | tmp_250_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_251      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_251_fu_20826_p2                           |     |        | add_ln37_251 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U35                           |     |        | tmp_251_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_252      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_252_fu_20855_p2                           |     |        | add_ln37_252 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U36                           |     |        | tmp_252_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_253      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_253_fu_20894_p2                           |     |        | add_ln37_253 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U37                           |     |        | tmp_253_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_254      | fmadd     | primitivedsp             | 0       |
+|        add_ln37_254_fu_20933_p2                           |     |        | add_ln37_254 | add       | fabric                   | 0       |
+|        sparsemux_9_2_32_1_1_U38                           |     |        | tmp_254_i    | sparsemux | compactencoding_dontcare | 0       |
+|        fmadd_32ns_32ns_32ns_32ns_32_1_primitive_dsp_1_U22 | 1   |        | acc_255      | fmadd     | primitivedsp             | 0       |
+|        icmp_ln33_fu_11433_p2                              |     |        | icmp_ln33    | seteq     | auto                     | 0       |
++-----------------------------------------------------------+-----+--------+--------------+-----------+--------------------------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++-----------------------------------------+----------------+-------------+------+------+--------+------------+------+---------+------------------+
+| Name                                    | Usage          | Type        | BRAM | URAM | Pragma | Variable   | Impl | Latency | Bitwidth, Depth, |
+|                                         |                |             |      |      |        |            |      |         | Banks            |
++-----------------------------------------+----------------+-------------+------+------+--------+------------+------+---------+------------------+
+| + circular_convolution_3d               |                |             | 32   | 0    |        |            |      |         |                  |
+|  + VITIS_LOOP_51_1_proc                 |                |             | 32   | 0    |        |            |      |         |                  |
+|   + dataflow_parent_loop_proc           |                |             | 32   | 0    |        |            |      |         |                  |
+|    + dataflow_in_loop_VITIS_LOOP_54_2_1 |                |             | 32   | 0    |        |            |      |         |                  |
+|      j_c_i_U                            | fifo channel   | scalar prop |      |      |        | j_c_i      | srl  | 0       | 2, 3, 1          |
+|      padded_A_3_U                       | ram_2p channel | pipo        | 2    |      |        | padded_A_3 | auto | 1       | 32, 128, 2       |
+|      padded_A_2_U                       | ram_2p channel | pipo        | 2    |      |        | padded_A_2 | auto | 1       | 32, 128, 2       |
+|      padded_A_1_U                       | ram_2p channel | pipo        | 2    |      |        | padded_A_1 | auto | 1       | 32, 128, 2       |
+|      padded_A_U                         | ram_2p channel | pipo        | 2    |      |        | padded_A   | auto | 1       | 32, 128, 2       |
+|      tmp_1_U                            | fifo channel   | task level  |      |      |        | tmp_1      | srl  | 0       | 4, 2, 1          |
+|      kernel_3_U                         | ram_2p channel | pipo        | 2    |      |        | kernel_3   | auto | 1       | 32, 64, 2        |
+|      kernel_2_U                         | ram_2p channel | pipo        | 2    |      |        | kernel_2   | auto | 1       | 32, 64, 2        |
+|      kernel_1_U                         | ram_2p channel | pipo        | 2    |      |        | kernel_1   | auto | 1       | 32, 64, 2        |
+|      kernel_U                           | ram_2p channel | pipo        | 2    |      |        | kernel     | auto | 1       | 32, 64, 2        |
++-----------------------------------------+----------------+-------------+------+------+--------+------------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Pragmas with Warnings
++-------------+-------------+---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Type        | Options     | Location                              | Messages                                                                                                                                                                                |
++-------------+-------------+---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| dataflow    |             | top.cpp:49 in circular_convolution_3d | Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region      |
+| performance | target_ti=1 | top.cpp:52 in circular_convolution_3d | The performance pragma target_ti=1 cycles for loop 'VITIS_LOOP_51_1' (top.cpp:51:19) in function 'circular_convolution_3d' may not be applied because the target is too tight to be met |
+| performance | target_ti=1 | top.cpp:55 in circular_convolution_3d | Cannot apply performance pragma for loop 'VITIS_LOOP_54_2' (top.cpp:54:19) in function 'circular_convolution_3d'because dataflow pragma takes precedence                                |
++-------------+-------------+---------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+* Valid Pragma Syntax
++-----------------+-----------------------------------------+-------------------------------------------------+
+| Type            | Options                                 | Location                                        |
++-----------------+-----------------------------------------+-------------------------------------------------+
+| inline          | off                                     | top.cpp:9 in pad_input                          |
+| pipeline        | II=1                                    | top.cpp:11 in pad_input                         |
+| inline          | off                                     | top.cpp:18 in prepare_kernel                    |
+| pipeline        | II=1                                    | top.cpp:20 in prepare_kernel                    |
+| inline          | off                                     | top.cpp:32 in compute_convolution               |
+| pipeline        | II=1                                    | top.cpp:34 in compute_convolution               |
+| array_partition | variable=padded_A cyclic factor=4 dim=1 | top.cpp:59 in circular_convolution_3d, padded_A |
+| array_partition | variable=kernel cyclic factor=4 dim=1   | top.cpp:62 in circular_convolution_3d, kernel   |
+| dataflow        |                                         | top.cpp:65 in circular_convolution_3d           |
++-----------------+-----------------------------------------+-------------------------------------------------+
+
+
