@@ -10,4 +10,3 @@ neural/ - contains the data and code related to neural kernels
 
 symbolic/ - contains the data and code related to symbolic kernels
 
-results/ - contains our implementation reports for implementing it on the FPGA
