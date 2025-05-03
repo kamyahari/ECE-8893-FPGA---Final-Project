@@ -1,0 +1,542 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2024.1.2 (64-bit)
+  **** SW Build 5096458 on Sep  5 2024
+  **** IP Build 5164407 on Fri Sep  6 08:18:11 MDT 2024
+  **** SharedData Build 5164864 on Thu Sep 05 13:09:09 MDT 2024
+  **** Start of session at: Tue Apr 29 04:49:08 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source /tools/software/xilinx/Vitis_HLS/2024.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] For user 'mzain9' on host 'ece-linlabsrv01.ece.gatech.edu' (Linux_x86_64 version 4.18.0-553.44.1.el8_10.x86_64) on Tue Apr 29 04:49:10 EDT 2025
+INFO: [HLS 200-10] On os "Red Hat Enterprise Linux release 8.10 (Ootpa)"
+INFO: [HLS 200-10] In directory '/nethome/mzain9/FPGA/2025_Spring/topic4/src'
+WARNING: [HLS 200-2053] The vitis_hls executable is deprecated. Consider using vitis-run --mode hls --tcl
+Sourcing Tcl script 'script.tcl'
+INFO: [HLS 200-1510] Running: open_project project_4 
+INFO: [HLS 200-10] Opening project '/nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4'.
+INFO: [HLS 200-1510] Running: set_top ResNet 
+INFO: [HLS 200-1510] Running: add_files top_new.cpp 
+INFO: [HLS 200-10] Adding design file 'top_new.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb host.cpp 
+INFO: [HLS 200-10] Adding test bench file 'host.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb input_1.bin 
+INFO: [HLS 200-10] Adding test bench file 'input_1.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block0_conv1_weights.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block0_conv1_weights.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block0_batch_norm_1_beta.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block0_batch_norm_1_beta.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block0_batch_norm_1_gamma.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block0_batch_norm_1_gamma.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb block0_output.bin 
+INFO: [HLS 200-10] Adding test bench file 'block0_output.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block0_batch_norm_1_mean.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block0_batch_norm_1_mean.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block0_batch_norm_1_var.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block0_batch_norm_1_var.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block0_conv2_weights.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block0_conv2_weights.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block0_batch_norm_2_beta.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block0_batch_norm_2_beta.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block0_batch_norm_2_gamma.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block0_batch_norm_2_gamma.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block0_batch_norm_2_mean.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block0_batch_norm_2_mean.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block0_batch_norm_2_var.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block0_batch_norm_2_var.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block0_downsample_weights.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block0_downsample_weights.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block0_downsample_batch_norm_gamma.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block0_downsample_batch_norm_gamma.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block0_downsample_batch_norm_beta.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block0_downsample_batch_norm_beta.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block0_downsample_batch_norm_mean.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block0_downsample_batch_norm_mean.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block0_downsample_batch_norm_var.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block0_downsample_batch_norm_var.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block1_conv1_weights.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block1_conv1_weights.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block1_batch_norm_1_beta.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block1_batch_norm_1_beta.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block1_batch_norm_1_gamma.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block1_batch_norm_1_gamma.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block1_batch_norm_1_mean.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block1_batch_norm_1_mean.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block1_batch_norm_1_var.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block1_batch_norm_1_var.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block1_conv2_weights.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block1_conv2_weights.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block1_batch_norm_2_beta.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block1_batch_norm_2_beta.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block1_batch_norm_2_gamma.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block1_batch_norm_2_gamma.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block1_batch_norm_2_mean.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block1_batch_norm_2_mean.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb layer4_block1_batch_norm_2_var.bin 
+INFO: [HLS 200-10] Adding test bench file 'layer4_block1_batch_norm_2_var.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb fc_bias.bin 
+INFO: [HLS 200-10] Adding test bench file 'fc_bias.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb fc_weights.bin 
+INFO: [HLS 200-10] Adding test bench file 'fc_weights.bin' to the project
+INFO: [HLS 200-1510] Running: add_files -tb output_1.bin 
+INFO: [HLS 200-10] Adding test bench file 'output_1.bin' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 
+INFO: [HLS 200-10] Opening solution '/nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xczu3eg-sbva484-1-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xczu3eg-sbva484-1-e 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.11 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.18 seconds; current allocated memory: 392.199 MB.
+INFO: [HLS 200-10] Analyzing design file 'top_new.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 26.47 seconds. CPU system time: 2.13 seconds. Elapsed time: 28.93 seconds; current allocated memory: 398.375 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 1,375 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 916 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 739 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 634 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 634 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 633 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 633 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 633 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 633 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 649 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 649 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 633 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 633 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 633 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 780 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 993 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: /nethome/mzain9/FPGA/2025_Spring/topic4/src/project_4/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 214-178] Inlining function 'conv2d_stride(float (*) [256][40][40], float (*) [256][3][3], float (*) [512][20][20])' into 'ResNet(float (*) [256][40][40], float (*) [256][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [256][40][40], float (*) [512][20][20], float (*) [256][1][1], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512], float (*) [512], float*, float (*) [512], float (*) [512])' (top_new.cpp:77:0)
+INFO: [HLS 214-178] Inlining function 'conv2d_stride_ds(float (*) [256][40][40], float (*) [256][1][1], float (*) [512][20][20])' into 'ResNet(float (*) [256][40][40], float (*) [256][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [256][40][40], float (*) [512][20][20], float (*) [256][1][1], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512], float (*) [512], float*, float (*) [512], float (*) [512])' (top_new.cpp:77:0)
+INFO: [HLS 214-178] Inlining function 'average_pooling(float (*) [512][20][20], float (*) [512])' into 'ResNet(float (*) [256][40][40], float (*) [256][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [256][40][40], float (*) [512][20][20], float (*) [256][1][1], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512], float (*) [512], float*, float (*) [512], float (*) [512])' (top_new.cpp:77:0)
+INFO: [HLS 214-178] Inlining function 'fully_connected(float (*) [512], float (*) [512], float*, float (*) [512])' into 'ResNet(float (*) [256][40][40], float (*) [256][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [256][40][40], float (*) [512][20][20], float (*) [256][1][1], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512], float (*) [512], float*, float (*) [512], float (*) [512])' (top_new.cpp:77:0)
+INFO: [HLS 214-178] Inlining function 'tanh_approx(float (*) [512], float (*) [512])' into 'ResNet(float (*) [256][40][40], float (*) [256][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [256][40][40], float (*) [512][20][20], float (*) [256][1][1], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512][3][3], float (*) [512][20][20], float*, float*, float*, float*, float (*) [512][20][20], float (*) [512], float (*) [512], float*, float (*) [512], float (*) [512])' (top_new.cpp:77:0)
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_219_7> at top_new.cpp:219:47 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_257_4> at top_new.cpp:257:35 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_154_7> at top_new.cpp:154:47 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_189_5> at top_new.cpp:189:39 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_103_4> at top_new.cpp:103:35 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_286_4> at top_new.cpp:286:35 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_314_3> at top_new.cpp:314:31 
+INFO: [HLS 214-376] automatically set the pipeline for Loop< VITIS_LOOP_329_2> at top_new.cpp:329:27 
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 3.81 seconds. CPU system time: 0.85 seconds. Elapsed time: 8.25 seconds; current allocated memory: 406.895 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 406.895 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 408.211 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 410.289 MB.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (top_new.cpp:214:28) to (top_new.cpp:219:47) in function 'conv2d'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (top_new.cpp:257:44) to (top_new.cpp:257:35) in function 'batchnorm2d'... converting 3 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (top_new.cpp:149:28) to (top_new.cpp:154:47) in function 'ResNet'... converting 3 basic blocks.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.29 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.31 seconds; current allocated memory: 435.020 MB.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_217_6'(top_new.cpp:217:43) and 'VITIS_LOOP_219_7'(top_new.cpp:219:47) in function 'conv2d' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_215_5'(top_new.cpp:215:39) and 'VITIS_LOOP_217_6'(top_new.cpp:217:43) in function 'conv2d' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_212_4'(top_new.cpp:212:35) and 'VITIS_LOOP_215_5'(top_new.cpp:215:39) in function 'conv2d' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_210_3'(top_new.cpp:210:31) and 'VITIS_LOOP_212_4'(top_new.cpp:212:35) in function 'conv2d' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_208_2'(top_new.cpp:208:27) and 'VITIS_LOOP_210_3'(top_new.cpp:210:31) in function 'conv2d' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_206_1'(top_new.cpp:206:23) and 'VITIS_LOOP_208_2'(top_new.cpp:208:27) in function 'conv2d' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_256_3'(top_new.cpp:256:31) and 'VITIS_LOOP_257_4'(top_new.cpp:257:35) in function 'batchnorm2d' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_251_2'(top_new.cpp:251:27) and 'VITIS_LOOP_256_3'(top_new.cpp:256:31) in function 'batchnorm2d' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_249_1'(top_new.cpp:249:23) and 'VITIS_LOOP_251_2'(top_new.cpp:251:27) in function 'batchnorm2d' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_152_6'(top_new.cpp:152:43) and 'VITIS_LOOP_154_7'(top_new.cpp:154:47) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_150_5'(top_new.cpp:150:39) and 'VITIS_LOOP_152_6'(top_new.cpp:152:43) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_147_4'(top_new.cpp:147:35) and 'VITIS_LOOP_150_5'(top_new.cpp:150:39) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_145_3'(top_new.cpp:145:31) and 'VITIS_LOOP_147_4'(top_new.cpp:147:35) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_143_2'(top_new.cpp:143:27) and 'VITIS_LOOP_145_3'(top_new.cpp:145:31) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_141_1'(top_new.cpp:141:23) and 'VITIS_LOOP_143_2'(top_new.cpp:143:27) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_184_4'(top_new.cpp:184:35) and 'VITIS_LOOP_189_5'(top_new.cpp:189:39) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_182_3'(top_new.cpp:182:31) and 'VITIS_LOOP_184_4'(top_new.cpp:184:35) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_179_2'(top_new.cpp:179:27) and 'VITIS_LOOP_182_3'(top_new.cpp:182:31) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_177_1'(top_new.cpp:177:23) and 'VITIS_LOOP_179_2'(top_new.cpp:179:27) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_101_3'(top_new.cpp:101:31) and 'VITIS_LOOP_103_4'(top_new.cpp:103:35) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_99_2'(top_new.cpp:99:26) and 'VITIS_LOOP_101_3'(top_new.cpp:101:31) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_97_1'(top_new.cpp:97:22) and 'VITIS_LOOP_99_2'(top_new.cpp:99:26) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_284_3'(top_new.cpp:284:31) and 'VITIS_LOOP_286_4'(top_new.cpp:286:35) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_281_2'(top_new.cpp:281:27) and 'VITIS_LOOP_284_3'(top_new.cpp:284:31) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_279_1'(top_new.cpp:279:23) and 'VITIS_LOOP_281_2'(top_new.cpp:281:27) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_309_2'(top_new.cpp:309:27) and 'VITIS_LOOP_314_3'(top_new.cpp:314:31) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_306_1'(top_new.cpp:306:23) and 'VITIS_LOOP_309_2'(top_new.cpp:309:27) in function 'ResNet' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'VITIS_LOOP_327_1'(top_new.cpp:327:23) and 'VITIS_LOOP_329_2'(top_new.cpp:329:27) in function 'ResNet' into perfectly nested loops.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_217_6' (top_new.cpp:217:43) in function 'conv2d'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_215_5' (top_new.cpp:215:39) in function 'conv2d'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_212_4' (top_new.cpp:212:35) in function 'conv2d'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_210_3' (top_new.cpp:210:31) in function 'conv2d'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_208_2' (top_new.cpp:208:27) in function 'conv2d'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_206_1' (top_new.cpp:206:23) in function 'conv2d'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_256_3' (top_new.cpp:256:31) in function 'batchnorm2d'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_251_2' (top_new.cpp:251:27) in function 'batchnorm2d'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_249_1' (top_new.cpp:249:23) in function 'batchnorm2d'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_152_6' (top_new.cpp:152:43) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_150_5' (top_new.cpp:150:39) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_147_4' (top_new.cpp:147:35) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_145_3' (top_new.cpp:145:31) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_143_2' (top_new.cpp:143:27) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_141_1' (top_new.cpp:141:23) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_184_4' (top_new.cpp:184:35) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_182_3' (top_new.cpp:182:31) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_179_2' (top_new.cpp:179:27) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_177_1' (top_new.cpp:177:23) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_101_3' (top_new.cpp:101:31) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_99_2' (top_new.cpp:99:26) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_97_1' (top_new.cpp:97:22) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_284_3' (top_new.cpp:284:31) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_281_2' (top_new.cpp:281:27) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_279_1' (top_new.cpp:279:23) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_309_2' (top_new.cpp:309:27) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_306_1' (top_new.cpp:306:23) in function 'ResNet'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_327_1' (top_new.cpp:327:23) in function 'ResNet'.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.36 seconds. CPU system time: 0.05 seconds. Elapsed time: 0.51 seconds; current allocated memory: 505.176 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'ResNet' ...
+WARNING: [SYN 201-103] Legalizing function name 'ResNet_Pipeline_VITIS_LOOP_97_1_VITIS_LOOP_99_2_VITIS_LOOP_101_3_VITIS_LOOP_103_' to 'ResNet_Pipeline_VITIS_LOOP_97_1_VITIS_LOOP_99_2_VITIS_LOOP_101_3_VITIS_LOOP_103_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ResNet_Pipeline_VITIS_LOOP_141_1_VITIS_LOOP_143_2_VITIS_LOOP_145_3_VITIS_LOOP_14' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_141_1_VITIS_LOOP_143_2_VITIS_LOOP_145_3_VITIS_LOOP_147_4_VITIS_LOOP_150_5_VITIS_LOOP_152_6_VITIS_LOOP_154_7'.
+WARNING: [HLS 200-880] The II Violation in module 'ResNet_Pipeline_VITIS_LOOP_141_1_VITIS_LOOP_143_2_VITIS_LOOP_145_3_VITIS_LOOP_14' (loop 'VITIS_LOOP_141_1_VITIS_LOOP_143_2_VITIS_LOOP_145_3_VITIS_LOOP_147_4_VITIS_LOOP_150_5_VITIS_LOOP_152_6_VITIS_LOOP_154_7'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'fadd' operation 32 bit ('sum', top_new.cpp:160->top_new.cpp:82) and 'select' operation 32 bit ('sum_13_mid227', top_new.cpp:141->top_new.cpp:82).
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'ResNet_Pipeline_VITIS_LOOP_141_1_VITIS_LOOP_143_2_VITIS_LOOP_145_3_VITIS_LOOP_14' (loop 'VITIS_LOOP_141_1_VITIS_LOOP_143_2_VITIS_LOOP_145_3_VITIS_LOOP_147_4_VITIS_LOOP_150_5_VITIS_LOOP_152_6_VITIS_LOOP_154_7'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'fadd' operation 32 bit ('sum', top_new.cpp:160->top_new.cpp:82) and 'select' operation 32 bit ('sum_13_mid227', top_new.cpp:141->top_new.cpp:82).
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'ResNet_Pipeline_VITIS_LOOP_141_1_VITIS_LOOP_143_2_VITIS_LOOP_145_3_VITIS_LOOP_14' (loop 'VITIS_LOOP_141_1_VITIS_LOOP_143_2_VITIS_LOOP_145_3_VITIS_LOOP_147_4_VITIS_LOOP_150_5_VITIS_LOOP_152_6_VITIS_LOOP_154_7'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'fadd' operation 32 bit ('sum', top_new.cpp:160->top_new.cpp:82) and 'select' operation 32 bit ('sum_13_mid227', top_new.cpp:141->top_new.cpp:82).
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'ResNet_Pipeline_VITIS_LOOP_141_1_VITIS_LOOP_143_2_VITIS_LOOP_145_3_VITIS_LOOP_14' (loop 'VITIS_LOOP_141_1_VITIS_LOOP_143_2_VITIS_LOOP_145_3_VITIS_LOOP_147_4_VITIS_LOOP_150_5_VITIS_LOOP_152_6_VITIS_LOOP_154_7'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between 'fadd' operation 32 bit ('sum', top_new.cpp:160->top_new.cpp:82) and 'select' operation 32 bit ('sum_13_mid227', top_new.cpp:141->top_new.cpp:82).
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 5, Depth = 13, loop 'VITIS_LOOP_141_1_VITIS_LOOP_143_2_VITIS_LOOP_145_3_VITIS_LOOP_147_4_VITIS_LOOP_150_5_VITIS_LOOP_152_6_VITIS_LOOP_154_7'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.38 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.46 seconds; current allocated memory: 506.875 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 506.875 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'batchnorm2d' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_249_1_VITIS_LOOP_251_2_VITIS_LOOP_256_3_VITIS_LOOP_257_4'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 39, loop 'VITIS_LOOP_249_1_VITIS_LOOP_251_2_VITIS_LOOP_256_3_VITIS_LOOP_257_4'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.21 seconds; current allocated memory: 507.789 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 507.789 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv2d' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_206_1_VITIS_LOOP_208_2_VITIS_LOOP_210_3_VITIS_LOOP_212_4_VITIS_LOOP_215_5_VITIS_LOOP_217_6_VITIS_LOOP_219_7'.
+WARNING: [HLS 200-880] The II Violation in module 'conv2d' (loop 'VITIS_LOOP_206_1_VITIS_LOOP_208_2_VITIS_LOOP_210_3_VITIS_LOOP_212_4_VITIS_LOOP_215_5_VITIS_LOOP_217_6_VITIS_LOOP_219_7'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'fadd' operation 32 bit ('sum', top_new.cpp:225) and 'select' operation 32 bit ('sum_3_mid227', top_new.cpp:206).
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'conv2d' (loop 'VITIS_LOOP_206_1_VITIS_LOOP_208_2_VITIS_LOOP_210_3_VITIS_LOOP_212_4_VITIS_LOOP_215_5_VITIS_LOOP_217_6_VITIS_LOOP_219_7'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'fadd' operation 32 bit ('sum', top_new.cpp:225) and 'select' operation 32 bit ('sum_3_mid227', top_new.cpp:206).
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'conv2d' (loop 'VITIS_LOOP_206_1_VITIS_LOOP_208_2_VITIS_LOOP_210_3_VITIS_LOOP_212_4_VITIS_LOOP_215_5_VITIS_LOOP_217_6_VITIS_LOOP_219_7'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'fadd' operation 32 bit ('sum', top_new.cpp:225) and 'select' operation 32 bit ('sum_3_mid227', top_new.cpp:206).
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'conv2d' (loop 'VITIS_LOOP_206_1_VITIS_LOOP_208_2_VITIS_LOOP_210_3_VITIS_LOOP_212_4_VITIS_LOOP_215_5_VITIS_LOOP_217_6_VITIS_LOOP_219_7'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between 'fadd' operation 32 bit ('sum', top_new.cpp:225) and 'select' operation 32 bit ('sum_3_mid227', top_new.cpp:206).
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 5, Depth = 13, loop 'VITIS_LOOP_206_1_VITIS_LOOP_208_2_VITIS_LOOP_210_3_VITIS_LOOP_212_4_VITIS_LOOP_215_5_VITIS_LOOP_217_6_VITIS_LOOP_219_7'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.23 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.28 seconds; current allocated memory: 510.191 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 510.191 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ResNet_Pipeline_VITIS_LOOP_177_1_VITIS_LOOP_179_2_VITIS_LOOP_182_3_VITIS_LOOP_18' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_177_1_VITIS_LOOP_179_2_VITIS_LOOP_182_3_VITIS_LOOP_184_4_VITIS_LOOP_189_5'.
+WARNING: [HLS 200-880] The II Violation in module 'ResNet_Pipeline_VITIS_LOOP_177_1_VITIS_LOOP_179_2_VITIS_LOOP_182_3_VITIS_LOOP_18' (loop 'VITIS_LOOP_177_1_VITIS_LOOP_179_2_VITIS_LOOP_182_3_VITIS_LOOP_184_4_VITIS_LOOP_189_5'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('sum_write_ln186', top_new.cpp:186->top_new.cpp:92) of variable 'sum', top_new.cpp:191->top_new.cpp:92 on local variable 'sum', top_new.cpp:186->top_new.cpp:92 and 'load' operation 32 bit ('sum_load') on local variable 'sum', top_new.cpp:186->top_new.cpp:92.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'ResNet_Pipeline_VITIS_LOOP_177_1_VITIS_LOOP_179_2_VITIS_LOOP_182_3_VITIS_LOOP_18' (loop 'VITIS_LOOP_177_1_VITIS_LOOP_179_2_VITIS_LOOP_182_3_VITIS_LOOP_184_4_VITIS_LOOP_189_5'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0) between 'store' operation 0 bit ('sum_write_ln186', top_new.cpp:186->top_new.cpp:92) of variable 'sum', top_new.cpp:191->top_new.cpp:92 on local variable 'sum', top_new.cpp:186->top_new.cpp:92 and 'load' operation 32 bit ('sum_load') on local variable 'sum', top_new.cpp:186->top_new.cpp:92.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'ResNet_Pipeline_VITIS_LOOP_177_1_VITIS_LOOP_179_2_VITIS_LOOP_182_3_VITIS_LOOP_18' (loop 'VITIS_LOOP_177_1_VITIS_LOOP_179_2_VITIS_LOOP_182_3_VITIS_LOOP_184_4_VITIS_LOOP_189_5'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0) between 'store' operation 0 bit ('sum_write_ln186', top_new.cpp:186->top_new.cpp:92) of variable 'sum', top_new.cpp:191->top_new.cpp:92 on local variable 'sum', top_new.cpp:186->top_new.cpp:92 and 'load' operation 32 bit ('sum_load') on local variable 'sum', top_new.cpp:186->top_new.cpp:92.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 4, Depth = 13, loop 'VITIS_LOOP_177_1_VITIS_LOOP_179_2_VITIS_LOOP_182_3_VITIS_LOOP_184_4_VITIS_LOOP_189_5'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.14 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.19 seconds; current allocated memory: 511.055 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 511.055 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ResNet_Pipeline_VITIS_LOOP_97_1_VITIS_LOOP_99_2_VITIS_LOOP_101_3_VITIS_LOOP_103_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_97_1_VITIS_LOOP_99_2_VITIS_LOOP_101_3_VITIS_LOOP_103_4'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 10, loop 'VITIS_LOOP_97_1_VITIS_LOOP_99_2_VITIS_LOOP_101_3_VITIS_LOOP_103_4'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 511.465 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 511.898 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ResNet_Pipeline_VITIS_LOOP_279_1_VITIS_LOOP_281_2_VITIS_LOOP_284_3_VITIS_LOOP_28' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_279_1_VITIS_LOOP_281_2_VITIS_LOOP_284_3_VITIS_LOOP_286_4'.
+WARNING: [HLS 200-880] The II Violation in module 'ResNet_Pipeline_VITIS_LOOP_279_1_VITIS_LOOP_281_2_VITIS_LOOP_284_3_VITIS_LOOP_28' (loop 'VITIS_LOOP_279_1_VITIS_LOOP_281_2_VITIS_LOOP_284_3_VITIS_LOOP_286_4'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('sum_write_ln283', top_new.cpp:283->top_new.cpp:127) of variable 'sum_3', top_new.cpp:288->top_new.cpp:127 on local variable 'sum', top_new.cpp:283->top_new.cpp:127 and 'load' operation 32 bit ('sum_load') on local variable 'sum', top_new.cpp:283->top_new.cpp:127.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'ResNet_Pipeline_VITIS_LOOP_279_1_VITIS_LOOP_281_2_VITIS_LOOP_284_3_VITIS_LOOP_28' (loop 'VITIS_LOOP_279_1_VITIS_LOOP_281_2_VITIS_LOOP_284_3_VITIS_LOOP_286_4'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0) between 'store' operation 0 bit ('sum_write_ln283', top_new.cpp:283->top_new.cpp:127) of variable 'sum_3', top_new.cpp:288->top_new.cpp:127 on local variable 'sum', top_new.cpp:283->top_new.cpp:127 and 'load' operation 32 bit ('sum_load') on local variable 'sum', top_new.cpp:283->top_new.cpp:127.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'ResNet_Pipeline_VITIS_LOOP_279_1_VITIS_LOOP_281_2_VITIS_LOOP_284_3_VITIS_LOOP_28' (loop 'VITIS_LOOP_279_1_VITIS_LOOP_281_2_VITIS_LOOP_284_3_VITIS_LOOP_286_4'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0) between 'store' operation 0 bit ('sum_write_ln283', top_new.cpp:283->top_new.cpp:127) of variable 'sum_3', top_new.cpp:288->top_new.cpp:127 on local variable 'sum', top_new.cpp:283->top_new.cpp:127 and 'load' operation 32 bit ('sum_load') on local variable 'sum', top_new.cpp:283->top_new.cpp:127.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 4, Depth = 19, loop 'VITIS_LOOP_279_1_VITIS_LOOP_281_2_VITIS_LOOP_284_3_VITIS_LOOP_286_4'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.17 seconds; current allocated memory: 512.652 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 512.926 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ResNet_Pipeline_VITIS_LOOP_306_1_VITIS_LOOP_309_2_VITIS_LOOP_314_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_306_1_VITIS_LOOP_309_2_VITIS_LOOP_314_3'.
+WARNING: [HLS 200-880] The II Violation in module 'ResNet_Pipeline_VITIS_LOOP_306_1_VITIS_LOOP_309_2_VITIS_LOOP_314_3' (loop 'VITIS_LOOP_306_1_VITIS_LOOP_309_2_VITIS_LOOP_314_3'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 0) between 'store' operation 0 bit ('empty_write_ln318', top_new.cpp:318->top_new.cpp:130) of variable 'add_i1', top_new.cpp:318->top_new.cpp:130 on local variable 'empty' and 'load' operation 32 bit ('p_load') on local variable 'empty'.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'ResNet_Pipeline_VITIS_LOOP_306_1_VITIS_LOOP_309_2_VITIS_LOOP_314_3' (loop 'VITIS_LOOP_306_1_VITIS_LOOP_309_2_VITIS_LOOP_314_3'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 0) between 'store' operation 0 bit ('empty_write_ln318', top_new.cpp:318->top_new.cpp:130) of variable 'add_i1', top_new.cpp:318->top_new.cpp:130 on local variable 'empty' and 'load' operation 32 bit ('p_load') on local variable 'empty'.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'ResNet_Pipeline_VITIS_LOOP_306_1_VITIS_LOOP_309_2_VITIS_LOOP_314_3' (loop 'VITIS_LOOP_306_1_VITIS_LOOP_309_2_VITIS_LOOP_314_3'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 0) between 'store' operation 0 bit ('empty_write_ln318', top_new.cpp:318->top_new.cpp:130) of variable 'add_i1', top_new.cpp:318->top_new.cpp:130 on local variable 'empty' and 'load' operation 32 bit ('p_load') on local variable 'empty'.
+Resolution: For help on HLS 200-880 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 4, Depth = 17, loop 'VITIS_LOOP_306_1_VITIS_LOOP_309_2_VITIS_LOOP_314_3'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.15 seconds; current allocated memory: 513.504 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 513.695 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ResNet_Pipeline_VITIS_LOOP_327_1_VITIS_LOOP_329_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_327_1_VITIS_LOOP_329_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 25, loop 'VITIS_LOOP_327_1_VITIS_LOOP_329_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.11 seconds; current allocated memory: 513.863 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 514.246 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ResNet' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 514.473 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 514.996 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ResNet_Pipeline_VITIS_LOOP_141_1_VITIS_LOOP_143_2_VITIS_LOOP_145_3_VITIS_LOOP_14' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ResNet_Pipeline_VITIS_LOOP_141_1_VITIS_LOOP_143_2_VITIS_LOOP_145_3_VITIS_LOOP_14' pipeline 'VITIS_LOOP_141_1_VITIS_LOOP_143_2_VITIS_LOOP_145_3_VITIS_LOOP_147_4_VITIS_LOOP_150_5_VITIS_LOOP_152_6_VITIS_LOOP_154_7' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ResNet_Pipeline_VITIS_LOOP_141_1_VITIS_LOOP_143_2_VITIS_LOOP_145_3_VITIS_LOOP_14'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 515.918 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'batchnorm2d' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'batchnorm2d' pipeline 'VITIS_LOOP_249_1_VITIS_LOOP_251_2_VITIS_LOOP_256_3_VITIS_LOOP_257_4' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fcmp_32ns_32ns_1_2_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_10_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsqrt_32ns_32ns_32_10_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'batchnorm2d'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.24 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.39 seconds; current allocated memory: 522.496 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv2d' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv2d' pipeline 'VITIS_LOOP_206_1_VITIS_LOOP_208_2_VITIS_LOOP_210_3_VITIS_LOOP_212_4_VITIS_LOOP_215_5_VITIS_LOOP_217_6_VITIS_LOOP_219_7' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv2d'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.19 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.27 seconds; current allocated memory: 525.504 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ResNet_Pipeline_VITIS_LOOP_177_1_VITIS_LOOP_179_2_VITIS_LOOP_182_3_VITIS_LOOP_18' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ResNet_Pipeline_VITIS_LOOP_177_1_VITIS_LOOP_179_2_VITIS_LOOP_182_3_VITIS_LOOP_18' pipeline 'VITIS_LOOP_177_1_VITIS_LOOP_179_2_VITIS_LOOP_182_3_VITIS_LOOP_184_4_VITIS_LOOP_189_5' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ResNet_Pipeline_VITIS_LOOP_177_1_VITIS_LOOP_179_2_VITIS_LOOP_182_3_VITIS_LOOP_18'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.21 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.3 seconds; current allocated memory: 530.266 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ResNet_Pipeline_VITIS_LOOP_97_1_VITIS_LOOP_99_2_VITIS_LOOP_101_3_VITIS_LOOP_103_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ResNet_Pipeline_VITIS_LOOP_97_1_VITIS_LOOP_99_2_VITIS_LOOP_101_3_VITIS_LOOP_103_s' pipeline 'VITIS_LOOP_97_1_VITIS_LOOP_99_2_VITIS_LOOP_101_3_VITIS_LOOP_103_4' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fcmp_32ns_32ns_1_2_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ResNet_Pipeline_VITIS_LOOP_97_1_VITIS_LOOP_99_2_VITIS_LOOP_101_3_VITIS_LOOP_103_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.25 seconds; current allocated memory: 533.621 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ResNet_Pipeline_VITIS_LOOP_279_1_VITIS_LOOP_281_2_VITIS_LOOP_284_3_VITIS_LOOP_28' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ResNet_Pipeline_VITIS_LOOP_279_1_VITIS_LOOP_281_2_VITIS_LOOP_284_3_VITIS_LOOP_28' pipeline 'VITIS_LOOP_279_1_VITIS_LOOP_281_2_VITIS_LOOP_284_3_VITIS_LOOP_286_4' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_10_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ResNet_Pipeline_VITIS_LOOP_279_1_VITIS_LOOP_281_2_VITIS_LOOP_284_3_VITIS_LOOP_28'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.14 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.29 seconds; current allocated memory: 536.277 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ResNet_Pipeline_VITIS_LOOP_306_1_VITIS_LOOP_309_2_VITIS_LOOP_314_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ResNet_Pipeline_VITIS_LOOP_306_1_VITIS_LOOP_309_2_VITIS_LOOP_314_3' pipeline 'VITIS_LOOP_306_1_VITIS_LOOP_309_2_VITIS_LOOP_314_3' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ResNet_Pipeline_VITIS_LOOP_306_1_VITIS_LOOP_309_2_VITIS_LOOP_314_3'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.13 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.19 seconds; current allocated memory: 538.906 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ResNet_Pipeline_VITIS_LOOP_327_1_VITIS_LOOP_329_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ResNet_Pipeline_VITIS_LOOP_327_1_VITIS_LOOP_329_2' pipeline 'VITIS_LOOP_327_1_VITIS_LOOP_329_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_10_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ResNet_Pipeline_VITIS_LOOP_327_1_VITIS_LOOP_329_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.18 seconds; current allocated memory: 541.719 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ResNet' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/input_r' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_weights_conv1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_output_conv1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_gamma1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_beta1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_mean1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_var1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_output_bn1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_weights_conv2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_output_conv2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_gamma2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_beta2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_mean2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_var2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_output_bn2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/input_local' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/output_local' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_weights_ds_conv1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_output_ds_conv1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_ds_gamma1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_ds_beta1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_ds_mean1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block0_ds_var1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/output_block0' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block1_weights_conv1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block1_output_conv1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block1_gamma1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block1_beta1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block1_mean1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block1_var1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block1_output_bn1' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block1_weights_conv2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block1_output_conv2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block1_gamma2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block1_beta2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block1_mean2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block1_var2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/block1_output_bn2' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/output_avgpooling' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/fc_weights' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/fc_bias' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/fc_output' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'ResNet/tanh_output' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'ResNet' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fdiv_32ns_32ns_32_10_no_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ResNet'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.28 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.56 seconds; current allocated memory: 544.910 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.35 seconds. CPU system time: 0.08 seconds. Elapsed time: 0.63 seconds; current allocated memory: 549.414 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 3.5 seconds. CPU system time: 0.11 seconds. Elapsed time: 3.74 seconds; current allocated memory: 563.090 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for ResNet.
+INFO: [VLOG 209-307] Generating Verilog RTL for ResNet.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 142.21 MHz
+INFO: [HLS 200-2161] Finished Command csynth_design Elapsed time: 00:00:48; Allocated memory: 170.891 MB.
+INFO: [HLS 200-1510] Running: cosim_design 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "/tools/software/xilinx/Vitis_HLS/2024.1/vcxx/libexec/clang++"
+   Compiling top_new.cpp_pre.cpp.tb.cpp
+   Compiling apatb_ResNet.cpp
+   Compiling host.cpp_pre.cpp.tb.cpp
+   Compiling apatb_ResNet_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+Memory allocated successfully!
+Input 1 loaded!
+Input 2 loaded!
+Input 3 loaded!
+Input 4 loaded!
+Input 5 loaded!
+Input 6 loaded!
+Input 7 loaded!
+Input 8 loaded!
+Input 9 loaded!
+Input 10 loaded!
+Input 11 loaded!
+Input 12 loaded!
+Input 13 loaded!
+Input 14 loaded!
+Input 15 loaded!
+Input 16 loaded!
+Input 17 loaded!
+Input 18 loaded!
+Input 19 loaded!
+Input 20 loaded!
+Input 21 loaded!
+Input 22 loaded!
+Input 23 loaded!
+Input 24 loaded!
+Input 25 loaded!
+Input 26 loaded!
+Input 27 loaded!
+Input 28 loaded!
+Input 29 loaded!
+Input 30 loaded!
+MSE compared to reference block0 after bn1: 0.145599
+MSE compared to the main reference: 0.0041055
+Test Failed! MSE = 0.0041055
+Downsameple bn1
+-0.0976389 -0.174229 -0.1868 -0.0650448 -0.112773
+Block 0 Bn2 output
+
+CONV2 Weights
+-0.00602302 -0.00109495
+ERROR: [COSIM 212-359] Aborting co-simulation: C TB simulation failed, nonzero return value '1'.
+ERROR: [COSIM 212-320] C TB testing failed, stop generating test vectors. Please check C TB or re-run cosim.
+ERROR: [COSIM 212-5] *** C/RTL co-simulation file generation failed. ***
+ERROR: [COSIM 212-4] *** C/RTL co-simulation finished: FAIL ***
+INFO: [HLS 200-2161] Finished Command cosim_design Elapsed time: 00:01:26; Allocated memory: 11.148 MB.
+command 'ap_source' returned error code
+    while executing
+"source script.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel \#0 [list source $tclfile] "
+
+INFO: [HLS 200-112] Total CPU user time: 122.99 seconds. Total CPU system time: 9.26 seconds. Total elapsed time: 141.69 seconds; peak allocated memory: 574.238 MB.
